@@ -2,6 +2,7 @@
 import { CartContext } from "@/context/cartProvider";
 import Svgs from "@/utils/Svgs";
 import { useContext } from "react";
+import ProductImage from "./ProductImage";
 
 const ProductItem = ({ product }) => {
   const { cartItems, addItemToCart, decrementItemFromCart } =
@@ -19,11 +20,7 @@ const ProductItem = ({ product }) => {
           isCurrentProductInCart && "border-2 border-rose"
         }`}
       >
-        <img
-          className="rounded-md size-full object-cover"
-          src={product.image.desktop}
-          alt={product.name}
-        />
+        <ProductImage image={product.image} name={product.name} />
         {!isCurrentProductInCart ? (
           <div
             className="w-[150px] h-10 absolute -bottom-5 left-1/2 -translate-x-1/2 px-6 py-2 bg-white text-center rounded-full border border-rose-500 text-sm font-semibold flex items-center gap-2 whitespace-nowrap cursor-pointer"
